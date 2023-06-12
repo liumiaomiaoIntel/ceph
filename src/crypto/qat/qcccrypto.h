@@ -19,6 +19,16 @@
 #include "boost/circular_buffer.hpp"
 #include "boost/asio/thread_pool.hpp"
 extern "C" {
+#ifdef HAVE_QAT_HEADERS
+#include <qat/cpa.h>
+#include <qat/cpa_cy_sym_dp.h>
+#include <qat/cpa_cy_im.h>
+#include <qat/cpa_cy_sym.h>
+#include <qat/qae_mem.h>
+#include <qat/icp_sal_user.h>
+#include <qat/icp_sal_poll.h>
+//#include <qat/qae_mem_utils.h>
+#else
 #include "cpa.h"
 #include "cpa_cy_sym_dp.h"
 #include "cpa_cy_im.h"
@@ -27,7 +37,8 @@ extern "C" {
 #include "qae_mem.h"
 #include "icp_sal_user.h"
 #include "icp_sal_poll.h"
-#include "qae_mem_utils.h"
+//#include "qae_mem_utils.h"
+#endif
 }
 
 class QccCrypto {

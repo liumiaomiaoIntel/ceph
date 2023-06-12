@@ -89,7 +89,7 @@ void QccCrypto::QccFreeInstance(int entry) {
 
 void QccCrypto::cleanup() {
   icp_sal_userStop();
-  qaeMemDestroy();
+  //qaeMemDestroy();
   is_init = false;
   init_called = false;
   derr << "Failure during QAT init sequence. Quitting" << dendl;
@@ -142,12 +142,12 @@ bool QccCrypto::init(const size_t chunk_size, const size_t max_requests) {
 
   // Find if the usermode memory driver is available. We need to this to
   // create contiguous memory needed by QAT.
-  stat = qaeMemInit();
+  /*stat = qaeMemInit();
   if (stat != CPA_STATUS_SUCCESS) {
     derr << "Unable to load memory driver" << dendl;
     this->cleanup();
     return false;
-  }
+  }*/
 
   stat = icp_sal_userStart("CEPH");
   if (stat != CPA_STATUS_SUCCESS) {
@@ -301,7 +301,7 @@ bool QccCrypto::destroy() {
 
   //Un-init memory driver and QAT HW
   icp_sal_userStop();
-  qaeMemDestroy();
+  //qaeMemDestroy();
   init_called = false;
   is_init = false;
   return true;

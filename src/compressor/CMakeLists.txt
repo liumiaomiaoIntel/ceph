@@ -12,6 +12,12 @@ if(HAVE_QATZIP AND HAVE_QATDRV)
                         QatDrv::usdm_drv_s
                         qatzip::qatzip
                        )
+elseif(HAVE_QATZIP AND HAVE_QATLIB)
+  target_link_libraries(compressor_objs PRIVATE
+                        Qatlib::qat
+                        Qatlib::usdm
+                        qatzip::qatzip
+                      )
 endif()
 add_dependencies(compressor_objs legacy-option-headers)
 
