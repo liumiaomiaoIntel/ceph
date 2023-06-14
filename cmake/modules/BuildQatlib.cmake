@@ -44,7 +44,7 @@ function(build_qatlib)
   set_target_properties(Qatlib::qat PROPERTIES
     INTERFACE_INCLUDE_DIRECTORIES "${Qatlib_INCLUDE_DIRS}"
     IMPORTED_LINK_INTERFACE_LANGUAGES "C"
-    IMPORTED_LOCATION "${Qatlib_LIB}/libqat.a")
+    IMPORTED_LOCATION "${Qatlib_LIB}/libqat.so")
 
   add_library(Qatlib::usdm SHARED IMPORTED GLOBAL)
   add_dependencies(Qatlib::usdm qatlib_ext)
