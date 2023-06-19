@@ -25,7 +25,7 @@ function(build_qatlib)
       BUILD_COMMAND ${make_cmd} CC=${CMAKE_C_COMPILER} EXTRA_CFLAGS=${qatlib_cflags}
       BUILD_IN_SOURCE 1
       BUILD_BYPRODUCTS "<SOURCE_DIR>/.libs/libqat.so" "<SOURCE_DIR>/.libs/libusdm.so"
-      INSTALL_COMMAND ${install_cmd})
+      INSTALL_COMMAND ${make_cmd} install COMMAND ${make_cmd} clean COMMAND ${install_cmd})
   unset(make_cmd)
 
   ExternalProject_Get_Property(qatlib_ext source_dir)
