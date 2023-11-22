@@ -6,7 +6,7 @@
 # qatzip_FOUND - True if qatzip found.
 
 find_path(qatzip_INCLUDE_DIR NAMES qatzip.h)
-find_library(qatzip_LIBRARIES NAMES qatzip HINTS /usr/local/lib64/)
+find_library(qatzip_LIBRARIES NAMES qatzip HINTS /usr/local/lib/)
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(qatzip DEFAULT_MSG qatzip_LIBRARIES qatzip_INCLUDE_DIR)

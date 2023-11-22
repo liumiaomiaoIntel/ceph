@@ -500,7 +500,7 @@ if(NOT WITH_SYSTEM_BOOST)
 endif()
 
 if(HAVE_QATZIP)
-  list(APPEND ceph_common_deps ${qatzip_LIBRARIES})
+  list(APPEND ceph_common_deps qatzip::qatzip)
 endif()
 
 if(WITH_DPDK)

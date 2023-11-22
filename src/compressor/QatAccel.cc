@@ -11,7 +11,7 @@
  * Foundation.  See file COPYING.
  *
  */
-#include <qatzip.h>
+#include "qatzip.h"
 
 #include "common/ceph_context.h"
 #include "common/common_init.h"
